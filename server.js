@@ -59,7 +59,8 @@ app.get('/download', function(request, response){
         res.end(err);
       });
   });
-}
+
+});
 
 
 app.listen(8888);
