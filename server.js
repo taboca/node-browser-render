@@ -4,30 +4,14 @@ var fs = require("fs"),
     qs = require('querystring'),
     path = require("path");
 
-http.createServer(function (req, res) {
+var express = require('express')
+  , app = express.createServer();
 
-  if (req.url == "/request") {
+app.use(express.bodyParser());
 
-    var POST = null;
+app.post('/request', function(request, response){
+  console.log(request.body);      // your JSON
+  response.send(request.body);    // echo the result back
+});
 
-    if (req.method == 'POST') {
-        var body = '';
-        req.on('data', function (data) {
-            body += data;
-            // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
-            if (body.length > 1e6) {
-                // FLOOD ATTACK OR FAULTY CLIENT, NUKE REQUEST
-                req.connection.destroy();
-            }
-        });
-        req.on('end', function () {
-            POST = qs.parse(body);
-        });
-    }
-
-    res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ "status": POST.uuid }));
-
-  }
-
-}).listen(8888);
+app.listen(8888);
