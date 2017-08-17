@@ -23,7 +23,7 @@ app.post('/request', function(request, response){
 
 });
 
-app.get('/download', function(request, response){
+app.get('/download', function(req, res){
 
   var file = path.resolve(__dirname, "taboca.png");
   fs.stat(file, function(err, stats) {
