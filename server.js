@@ -7,6 +7,8 @@ http.createServer(function (req, res) {
 
   if (req.url == "/request") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify({ "status": "pending" }));
+    res.end(JSON.stringify({ "status": POST.uuid }));
+
   }
+
 }).listen(8888);
