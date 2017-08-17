@@ -27,7 +27,7 @@ app.post('/request', function(request, response){
 
 app.get('/download', function(req, res){
 
-  var file = __dirname + 'taboca.png';
+  var file = __dirname + '/taboca.png';
 
   var filename = path.basename(file);
   var mimetype = mime.lookup(file);
