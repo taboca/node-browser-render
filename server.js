@@ -21,9 +21,7 @@ http.createServer(function (req, res) {
             }
         });
         req.on('end', function () {
-
             POST = qs.parse(body);
-
         });
     }
 
