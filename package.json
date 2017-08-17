@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
+    "mime": "^1.3.6",
     "webshot": "^0.18.0"
   },
   "devDependencies": {},
