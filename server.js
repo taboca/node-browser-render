@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.post('/request', function(request, response){
   console.log(request.body);      // your JSON
   response.send(request.body);    // echo the result back
-  response.send(200);
 
   screenshot({
     url : request.body.url,
@@ -30,6 +29,7 @@ app.post('/request', function(request, response){
       });
   });
 
+  response.send(200);
 
 });
 
