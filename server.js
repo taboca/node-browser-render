@@ -25,42 +25,16 @@ app.post('/request', function(request, response){
 
 app.get('/download', function(req, res){
 
-  var file = path.resolve(__dirname, "taboca.png");
-  fs.stat(file, function(err, stats) {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        // 404 Error if file not found
-        return res.sendStatus(404);
-      }
-    res.end(err);
-    }
-    var range = req.headers.range;
-    if (!range) {
-     // 416 Wrong range
-     return res.sendStatus(416);
-    }
-    var positions = range.replace(/bytes=/, "").split("-");
-    var start = parseInt(positions[0], 10);
-    var total = stats.size;
-    var end = positions[1] ? parseInt(positions[1], 10) : total - 1;
-    var chunksize = (end - start) + 1;
+  var file = __dirname + 'taboca.png';
 
-    res.writeHead(206, {
-      "Content-Range": "bytes " + start + "-" + end + "/" + total,
-      "Accept-Ranges": "bytes",
-      "Content-Length": chunksize,
-      "Content-Type": "image/png"
-    });
+  var filename = path.basename(file);
+  var mimetype = mime.lookup(file);
 
-    var stream = fs.createReadStream(file, { start: start, end: end })
-      .on("open", function() {
-        stream.pipe(res);
-      }).on("error", function(err) {
-        res.end(err);
-      });
-  });
+  res.setHeader('Content-disposition', 'attachment; filename=' + filename);
+  res.setHeader('Content-type', mimetype);
 
+  var filestream = fs.createReadStream(file);
+  filestream.pipe(res);
 });
-
 
 app.listen(8888);
