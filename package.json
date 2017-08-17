@@ -4,6 +4,7 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "electron-screenshot-service": "^4.0.3",
     "express": "^4.15.4"
   },
