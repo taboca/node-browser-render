@@ -53,7 +53,6 @@ http.createServer(function (req, res) {
     });
 
 */
-  }
 
   if (req.url == "download") {
 
