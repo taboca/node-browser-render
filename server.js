@@ -1,8 +1,8 @@
 var fs = require("fs"),
     http = require("http"),
     url = require("url"),
-    screenshot = require('electron-screenshot-service'),
     qs = require('querystring'),
+    webshot = require('webshot'),
     path = require("path");
 
 var express = require('express');
@@ -15,21 +15,11 @@ app.post('/request', function(request, response){
   console.log(request.body);      // your JSON
   response.send(request.body);    // echo the result back
 
-  screenshot({
-    url : request.body.url,
-    width : 1024,
-    delay : 5000,
-    height : 768
-  })
-  .then(function(img){
+  var webshot = require('webshot');
 
-      //fs.writeFile('./out.png', img.data, function(err){
-      fs.writeFile(request.body.uuid+'.png', img.data, function(err){
-        screenshot.close();
-      });
+  webshot(request.body.url, request.body.uuid+'.png', function(err) {
+    // screenshot now saved to google.png
   });
-
-  response.send(200);
 
 });
 

@@ -6,7 +6,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "electron-screenshot-service": "^4.0.3",
-    "express": "^4.15.4"
+    "express": "^4.15.4",
+    "webshot": "^0.18.0"
   },
   "devDependencies": {},
   "scripts": {
