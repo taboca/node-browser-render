@@ -5,10 +5,10 @@ var fs = require("fs"),
     path = require("path");
 
 var express = require('express');
+var app = express();
+var bodyParser = require('body-parser')
 
-app = express();
-
-app.use(express.bodyParser());
+app.use(bodyParser);
 
 app.post('/request', function(request, response){
   console.log(request.body);      // your JSON
