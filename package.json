@@ -1,5 +1,5 @@
 {
-  "name": "Taboca Render Screenshot with Electron",
+  "name": "renderfarm",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
