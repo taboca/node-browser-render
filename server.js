@@ -4,8 +4,9 @@ var fs = require("fs"),
     qs = require('querystring'),
     path = require("path");
 
-var express = require('express')
-  , app = express.createServer();
+var express = require('express');
+
+app = express();
 
 app.use(express.bodyParser());
 
