@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "dependencies": {
-    "electron-screenshot-service": "^4.0.3"
+    "electron-screenshot-service": "^4.0.3",
+    "express": "^4.15.4"
   },
   "devDependencies": {},
   "scripts": {
