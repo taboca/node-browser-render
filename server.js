@@ -19,7 +19,15 @@ app.post('/request', function(request, res){
 
   var webshot = require('webshot');
 
-  webshot(request.body.url, request.body.uuid+'.png', function(err) {
+  var options = {
+    screenSize: {
+      width: 640 , height: 400
+    }
+    ,
+    renderDelay: 3000
+  };
+
+  webshot(request.body.url, request.body.uuid+'.png', options, function(err) {
     // screenshot now saved to google.png
 
     var file = __dirname + '/' +  request.body.uuid+'.png' ;
