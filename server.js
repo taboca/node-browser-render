@@ -21,7 +21,7 @@ app.post('/request', function(request, res){
 
   var options = {
     screenSize: {
-      width: 640 , height: 400
+      width: 1200 , height: 630
     }
     ,
     renderDelay: 3000
