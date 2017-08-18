@@ -22,7 +22,7 @@ app.post('/request', function(request, res){
   webshot(request.body.url, request.body.uuid+'.png', function(err) {
     // screenshot now saved to google.png
 
-    var file = __dirname + '/taboca.png';
+    var file = __dirname + '/' +  request.body.uuid+'.png' ;
 
     var filename = path.basename(file);
     var mimetype = mime.lookup(file);
